@@ -14,4 +14,45 @@ public class MarsRover {
         this.y_position = y_position;
         this.direction = direction;
     }
+
+    public void execute(char command) {
+        switch (command) {
+            case 'M':
+                if (direction == 'N') {
+                    y_position += 1;
+                }
+                if (direction == 'S') {
+                    y_position += -1;
+                }
+                if (direction == 'W') {
+                    x_position += -1;
+                }
+                if (direction == 'E') {
+                    x_position += 1;
+                }
+                break;
+
+            case 'B':
+                if (direction == 'N') {
+                    y_position += -1;
+                }
+                if (direction == 'S') {
+                    y_position += 1;
+                }
+                if (direction == 'W') {
+                    x_position += 1;
+                }
+                if (direction == 'E') {
+                    x_position += -1;
+                }
+                break;
+
+            case 'L':
+                direction = leftTurnList.get((leftTurnList.indexOf(direction) + 1) % 4);
+                break;
+
+            case 'R':
+                direction = rightTurnList.get((rightTurnList.indexOf(direction) + 1) % 4);
+        }
+    }
 }
