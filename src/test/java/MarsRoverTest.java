@@ -54,5 +54,36 @@ public class MarsRoverTest {
         assertEquals(Arrays.asList("10", "20", "S"), rover.report());
     }
 
+    @Test
+    void test_position_turn_right() {
+        MarsRover rover = new MarsRover(10, 20, 'W');
+        rover.execute('R');
+        assertEquals(Arrays.asList("10", "20", "N"), rover.report());
+    }
+
+    @Test
+    void test_position_execute_two_times_move() {
+        MarsRover rover = new MarsRover(10, 20, 'N');
+        rover.execute('M');
+        rover.execute('M');
+        assertEquals(Arrays.asList("10", "22", "N"), rover.report());
+    }
+
+    @Test
+    void test_position_execute_two_times_back() {
+        MarsRover rover = new MarsRover(10, 20, 'N');
+        rover.execute('B');
+        rover.execute('B');
+        assertEquals(Arrays.asList("10", "18", "N"), rover.report());
+    }
+
+    @Test
+    void test_position_execute_two_times_move_back() {
+        MarsRover rover = new MarsRover(10, 20, 'N');
+        rover.execute('M');
+        rover.execute('B');
+        assertEquals(Arrays.asList("10", "20", "N"), rover.report());
+    }
+
 
 }
