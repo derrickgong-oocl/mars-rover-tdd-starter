@@ -11,4 +11,27 @@ public class MarsRoverTest {
         rover.execute('M');
         assertEquals(Arrays.asList("0", "1", "N"), rover.report());
     }
+
+    @Test
+    void test_backForward() {
+        MarsRover rover = new MarsRover(0, 0, 'N');
+        rover.execute('B');
+        assertEquals(Arrays.asList("0", "-1", "N"), rover.report());
+    }
+
+    @Test
+    void test_turnRight() {
+        MarsRover rover = new MarsRover(0, 0, 'N');
+        rover.execute('R');
+        assertEquals(Arrays.asList("0", "0", "E"), rover.report());
+    }
+
+    @Test
+    void test_turnLeft() {
+        MarsRover rover = new MarsRover(0, 0, 'N');
+        rover.execute('L');
+        assertEquals(Arrays.asList("0", "0", "W"), rover.report());
+    }
+
+
 }

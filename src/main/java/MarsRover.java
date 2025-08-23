@@ -56,7 +56,7 @@ public class MarsRover {
         }
 
     }
-    
+
     public List<String> report() {
         return Arrays.asList(String.valueOf(x_position), String.valueOf(y_position), String.valueOf(direction));
     }
