@@ -101,5 +101,70 @@ public class MarsRoverTest {
         assertEquals(Arrays.asList("10", "20", "S"), rover.report());
     }
 
+    @Test
+    void test_execute_multiple_commands_first_case() {
+        MarsRover rover = new MarsRover(10, 20, 'N');
+        rover.execute('R');
+        rover.execute('R');
+        rover.execute('R');
+        rover.execute('R');
+        rover.execute('M');
+        rover.execute('M');
+        assertEquals(Arrays.asList("10", "22", "N"), rover.report());
+    }
+
+    @Test
+    void test_execute_multiple_commands_second_case() {
+        MarsRover rover = new MarsRover(10, 20, 'N');
+        rover.execute('M');
+        rover.execute('R');
+        rover.execute('M');
+        rover.execute('L');
+        rover.execute('M');
+        assertEquals(Arrays.asList("11", "22", "N"), rover.report());
+    }
+
+    @Test
+    void test_execute_multiple_commands_third_case() {
+        MarsRover rover = new MarsRover(10, 20, 'N');
+        rover.execute('M');
+        rover.execute('R');
+        rover.execute('B');
+        rover.execute('B');
+        rover.execute('L');
+        assertEquals(Arrays.asList("8", "21", "N"), rover.report());
+    }
+
+    @Test
+    void test_execute_multiple_commands_fourth_case() {
+        MarsRover rover = new MarsRover(10, 20, 'N');
+        rover.execute('M');
+        rover.execute('R');
+        rover.execute('B');
+        rover.execute('B');
+        rover.execute('L');
+        rover.execute('M');
+        rover.execute('R');
+        rover.execute('B');
+        rover.execute('M');
+        assertEquals(Arrays.asList("8", "22", "E"), rover.report());
+    }
+
+
+    @Test
+    void test_execute_multiple_commands_fifth_case() {
+        MarsRover rover = new MarsRover(10, 20, 'N');
+        rover.execute('R');
+        rover.execute('R');
+        rover.execute('M');
+        rover.execute('L');
+        rover.execute('L');
+        rover.execute('B');
+        rover.execute('R');
+        rover.execute('M');
+        rover.execute('M');
+        assertEquals(Arrays.asList("12", "18", "E"), rover.report());
+    }
+
 
 }
